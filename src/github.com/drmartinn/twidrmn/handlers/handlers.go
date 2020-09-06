@@ -23,6 +23,22 @@ func Manejadores() {
 	router.HandleFunc("/updateProfile", middlew.CheckBD(middlew.ValidateJwt(routers.ModProfile))).Methods("PUT")
 	router.HandleFunc("/tweet", middlew.CheckBD(middlew.ValidateJwt(routers.CreateTweet))).Methods("POST")
 	router.HandleFunc("/findTweet", middlew.CheckBD(middlew.ValidateJwt(routers.FindTweet))).Methods("GET")
+	router.HandleFunc("/deleteTweet", middlew.CheckBD(middlew.ValidateJwt(routers.DeleteTweet))).Methods("DELETE")
+
+	router.HandleFunc("/uploadAvatar", middlew.CheckBD(middlew.ValidateJwt(routers.UploadAvatar))).Methods("POST")
+	router.HandleFunc("/getAvatar", middlew.CheckBD(routers.GetAvatar)).Methods("GET")
+
+	router.HandleFunc("/uploadBanner", middlew.CheckBD(middlew.ValidateJwt(routers.UploadBanner))).Methods("POST")
+	router.HandleFunc("/getBanner", middlew.CheckBD(routers.GetBanner)).Methods("GET")
+
+	router.HandleFunc("/createRelation", middlew.CheckBD(middlew.ValidateJwt(routers.CreateRelation))).Methods("POST")
+	router.HandleFunc("/deleteRelation", middlew.CheckBD(middlew.ValidateJwt(routers.DeleteRelation))).Methods("DELETE")
+
+	router.HandleFunc("/findRelation", middlew.CheckBD(middlew.ValidateJwt(routers.FindRelation))).Methods("GET")
+
+	router.HandleFunc("/listUsers", middlew.CheckBD(middlew.ValidateJwt(routers.ListUsers))).Methods("GET")
+
+	router.HandleFunc("/listTweetsFollow", middlew.CheckBD(middlew.ValidateJwt(routers.FindTweetsFollow))).Methods("GET")
 
 	PORT := os.Getenv("PORT")
 	if PORT == "" {

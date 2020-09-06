@@ -22,7 +22,7 @@ var (
 
 /*MongoCN es el objeto de conexion a la BD */
 var MongoCN = GetInstanceBD()
-var clienteOptions = options.Client().ApplyURI("mongodb+srv://drmartinn:@cluster0-rtfqn.mongodb.net/test")
+var clienteOptions = options.Client().ApplyURI("mongodb+srv://@cluster0-rtfqn.mongodb.net/test")
 
 func init() {
 	once.Do(
